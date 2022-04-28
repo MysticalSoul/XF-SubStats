@@ -1,0 +1,14 @@
+{
+    "legacy_addon_id": "",
+    "title": "Current Subscribers Statistics",
+    "description": "Automatically fetches the current number of active user upgrades and calculates the current monetary total.",
+    "version_id": 1000010,
+    "version_string": "1.0.0",
+    "dev": "PandaExpress293",
+    "dev_url": "https://twitter.com/mysticalmamba",
+    "faq_url": "",
+    "support_url": "https://discord.gg/rsclan",
+    "extra_urls": [],
+    "require": [],
+    "icon": "icon.png"
+}

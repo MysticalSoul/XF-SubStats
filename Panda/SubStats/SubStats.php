@@ -27,7 +27,6 @@ class SubStats
 			$totalRev = 0;
 			$currentActiveSubs = $subData->getCurrentSubs();
 			$subscriberTierCosts = $subData->getCurrentSubValues();
-			$pricingArray = null;
 
 			foreach($subscriberTierCosts as $subs => $subArray) {
 				foreach($subArray as $entity){

@@ -8,8 +8,7 @@ class SubStats
 		{
 			$db = \XF::db();
 			$results = $db->fetchAll('SELECT user_upgrade_id FROM xf_user_upgrade_active');
-			$debugfile = fopen("debug.txt", "w");
-			fwrite($debugfile, print_r($results,true));
+			
 			return $results;
 		}
 
@@ -17,7 +16,7 @@ class SubStats
 		{
 			$db = \XF::db();
 			$subResponseData = $db->fetchAll('SELECT o.cost_amount FROM xf_user_upgrade o INNER JOIN xf_user_upgrade_active i on o.user_upgrade_id = i.user_upgrade_id');
-
+			
 			return $subResponseData;
 		}
 
@@ -33,6 +32,7 @@ class SubStats
 					$totalRev += intval($entity);
 				}
 			}
+			
 			return $totalRev;
 		}
 
@@ -40,6 +40,7 @@ class SubStats
 		{
 			$subValue = new SubStats();
 			$currentSubsRevenue = $subValue->calculateValue();
+			
 			return $currentSubsRevenue;
 		}
 
@@ -47,6 +48,7 @@ class SubStats
 		{
 			$subCount = new SubStats();
 			$currentActiveSubs = count($subCount->getCurrentSubs());
+			
 			return $currentActiveSubs;
 		}		
 	}

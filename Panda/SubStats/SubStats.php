@@ -1,6 +1,6 @@
 <?php
 
-namespace Panda;
+namespace Panda\SubStats;
 
 class SubStats
 {

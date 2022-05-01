@@ -45,7 +45,8 @@ class SubStats
 			{
 				if (strpos(trim($line), '<b id="total-cost">') === 0)
 				{
-					$parsedString = $this->get_string_between(trim($line), '<b id="total-cost">Total Operating Costs:', '</b>');
+					$dollarAmount = explode(":", trim($line));
+					$parsedString = $this->get_string_between(trim($dollarAmount[1]), '$', '</b>');
 					return $parsedString;
 				}
 			}
@@ -65,8 +66,24 @@ class SubStats
 		{
 			$subValue = new SubStats();
 			$currentSubsRevenue = $subValue->calculateValue();
+
+			$totalCostValue = $subValue->getTotalCostValue();
 			
-			return $currentSubsRevenue;
+			$color = "";
+			if ($currentSubsRevenue < $totalCostValue) 
+			{
+				$color = "color: #ff0000;";
+			}
+			else 
+			{
+				$color = "color: #00ff00;";
+			}
+
+			$formattedHtmlStart = '<span style="'.$color.'">$';
+			$formattedHtmlEnd = '</span>';
+			$formattedHtmlFinal = "$formattedHtmlStart$currentSubsRevenue$formattedHtmlEnd";
+			
+			return $formattedHtmlFinal;
 		}
 
 		public static function getSubCount() 
